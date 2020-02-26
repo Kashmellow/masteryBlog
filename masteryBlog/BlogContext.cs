@@ -30,7 +30,18 @@ namespace masteryBlog
                     Author = "Svetlana",
                     PublishDate = DateTime.Now,
                     Category = "Parenting",
-                    Tags = "young parent life"
+                    Tag = "young parent life"
+                },
+                
+                new BlogModel()
+                {
+                    BlogId = 2,
+                    Title = "Second Blog",
+                    Content = "Here's some more content about parenting",
+                    Author = "Viktor",
+                    PublishDate = DateTime.Now,
+                    Category = "Parenting",
+                    Tag = "young parent life"
                
                 });
             base.OnModelCreating(modelBuilder);
