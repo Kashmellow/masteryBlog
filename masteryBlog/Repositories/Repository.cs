@@ -8,36 +8,44 @@ namespace masteryBlog.Repositories
 {
     public class Repository<T> : IRepository<T> where T : class
     {
-        private DbContext db;
-
+        public DbContext db;
         public Repository(DbContext db)
         {
             this.db = db;
         }
-
-        public void Create(T obj)
+        public int Count()
         {
-            throw new NotImplementedException();
+            return db.Set<T>().Count();
         }
-
-        public void Delete(T obj)
+        public void Create(T entity)
         {
-            throw new NotImplementedException();
+            db.Set<T>().Add(entity);
+            db.SaveChanges();
         }
-
-        public IEnumerable<T> GetAll()
+        public void Update(T entity)
         {
-            return db.Set<T>().ToList();
+            db.Set<T>().Update(entity);
+            db.SaveChanges();
         }
-
         public T GetById(int id)
         {
             return db.Set<T>().Find(id);
         }
-
-        public void Update(T obj)
+        public void Delete(T entity)
         {
-            throw new NotImplementedException();
+            db.Set<T>().Remove(entity);
+            db.SaveChanges();
+        }
+        public void Save()
+        {
+            // Save will persist all modifications to entities to the database.
+            // Theres no great way to test this, and really we would be testing Microsoft's
+            // code and not ours.  Untested code is the exception, not the norm.
+            db.SaveChanges();
+        }
+        public IEnumerable<T> GetAll()
+        {
+            return db.Set<T>().ToList();
         }
     }
 }
