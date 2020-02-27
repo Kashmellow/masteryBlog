@@ -1,0 +1,41 @@
+﻿@model IEnumerable<masteryBlog.Models.BlogModel>
+@{
+    ViewBag.Title = "Home";
+}
+@section slider{
+    <div class="bgred">
+        <header>
+            <h1>Babies having babies</h1>
+            <h2>Are you a baby having babies?</h2>
+        </header>
+    </div>
+}
+<section id="???">
+    <h2>Blog Posts</h2>
+    <div id="projects">
+        @foreach (var blog in Model)
+        {
+            <article>
+                <a href="/Product/Detail/@blog.BlogId">
+                    <img src="~/img/@pony.Image" alt="@pony.Name">
+                    <h3>@pony.Name</h3>
+                    <p>
+                        @pony.Description
+                    </p>
+                    <p>
+                        @pony.Category
+                    </p>
+                    <p>
+                        @pony.DateTimeGroup
+                    </p>
+                </a>
+            </article>
+        }
+    </div>
+</section>
+
+
+
+
+
+
