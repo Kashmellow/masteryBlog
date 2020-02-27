@@ -14,6 +14,17 @@ namespace masteryBlog.Repositories
         {
             this.db = db;
         }
+
+        public void Create(T obj)
+        {
+            throw new NotImplementedException();
+        }
+
+        public void Delete(T obj)
+        {
+            throw new NotImplementedException();
+        }
+
         public IEnumerable<T> GetAll()
         {
             return db.Set<T>().ToList();
@@ -22,6 +33,11 @@ namespace masteryBlog.Repositories
         public T GetById(int id)
         {
             return db.Set<T>().Find(id);
+        }
+
+        public void Update(T obj)
+        {
+            throw new NotImplementedException();
         }
     }
 }
