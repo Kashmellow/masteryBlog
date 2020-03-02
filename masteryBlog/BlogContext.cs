@@ -10,6 +10,8 @@ namespace masteryBlog
 
     {
         public DbSet<BlogModel> Blog { get; set; }
+        public DbSet<Tag> Tag { get; set; }
+        public DbSet<Category> Category { get; set; }
 
         protected override void OnConfiguring(DbContextOptionsBuilder optionsBuilder)
         {
@@ -24,26 +26,42 @@ namespace masteryBlog
             modelBuilder.Entity<BlogModel>().HasData(
                 new BlogModel()
                 {
-                    BlogId = 1,
+                    Id = 1,
                     Title = "First Blog",
                     Content = "Here's some content about parenting",
                     Author = "Svetlana",
                     PublishDate = DateTime.Now,
-                    Category = "Parenting",
-                    Tag = "young parent life"
+                    CategoryId = 1,
+                    TagId = 1
                 },
                 
                 new BlogModel()
                 {
-                    BlogId = 2,
+                    Id = 2,
                     Title = "Second Blog",
                     Content = "Here's some more content about parenting",
                     Author = "Viktor",
                     PublishDate = DateTime.Now,
-                    Category = "Parenting",
-                    Tag = "young parent life"
+                    CategoryId = 1,
+                    TagId = 1
                
                 });
+
+
+            modelBuilder.Entity<Category>().HasData(
+              new Category()
+              {
+                  CategoryId = 1,
+                  CategoryName = "Young Parenting"
+              });
+
+            modelBuilder.Entity<Tag>().HasData(
+            new Tag()
+            {
+                TagId = 1,
+                TagName = "Recipes for Kids"
+            });
+
             base.OnModelCreating(modelBuilder);
         }
 

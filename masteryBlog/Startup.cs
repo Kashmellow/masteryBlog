@@ -2,6 +2,8 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using masteryBlog.Models;
+using masteryBlog.Repositories;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Http;
@@ -24,6 +26,9 @@ namespace masteryBlog
         {
             services.AddMvc();
             services.AddDbContext<BlogContext>();
+            services.AddScoped<IRepository<BlogModel>, BlogRepository>();
+            services.AddScoped<IRepository<Tag>, TagRepository>();
+            services.AddScoped<IRepository<Category>, CategoryRepository>();
 
         }
 

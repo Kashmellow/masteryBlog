@@ -8,27 +8,28 @@ using Microsoft.AspNetCore.Mvc;
 
 namespace masteryBlog.Controllers
 {
-    public class BlogController : Controller
+    public class TagController : Controller
     {
-        IRepository<BlogModel> blogRepo;
+        Repositories.IRepository<Tag> myTags;
 
-        public BlogController(IRepository<BlogModel> blogRepo)
+        public TagController(IRepository<Tag> myTags)
         {
-            this.blogRepo = blogRepo;
+            this.myTags = myTags;
         }
-        public ViewResult Index()
-        {
-            var model = blogRepo.GetAll();
 
+        // GET: /<controller>/
+        public ActionResult Index()
+        {
+            var model = myTags.GetAll();
             return View(model);
         }
 
-        public ViewResult Detail(int id)
+        public IActionResult Detail(int id)
         {
-            var model = blogRepo.GetById(id);
-
+            var model = myTags.GetById(id);
             return View(model);
         }
+
         [HttpGet]
         public IActionResult Create()
         {
@@ -36,53 +37,50 @@ namespace masteryBlog.Controllers
         }
 
         [HttpPost]
-        public IActionResult Create(BlogModel blog)
+        public IActionResult Create(Tag tag)
         {
             if (!ModelState.IsValid)
             {
                 return View();
             }
-            blogRepo.Create(blog);
+            myTags.Create(tag);
             return RedirectToAction("Index");
         }
-
-
- 
 
         [HttpGet]
         public ViewResult Update(int id)
         {
-            var model = blogRepo.GetById(id);
+            var model = myTags.GetById(id);
+
             return View(model);
         }
 
-        //Breaking Here
         [HttpPost]
-        public ActionResult Update(BlogModel blog)
+        public ActionResult Update(Tag tag)
         {
             if (!ModelState.IsValid)
             {
                 return View();
             }
-            blogRepo.Update(blog);
-            return RedirectToAction("Detail", "Blog", new { id = blog.Id });
-        }
+            myTags.Update(tag);
 
+            return RedirectToAction("Index");
+        }
 
         [HttpGet]
         public ViewResult Delete(int id)
         {
-            BlogModel model = blogRepo.GetById(id);
+            var model = myTags.GetById(id);
+
             return View(model);
         }
 
         [HttpPost]
-        public ActionResult Delete(BlogModel blog)
+        public ActionResult Delete(Tag tag)
         {
-            blogRepo.Delete(blog);
-            return RedirectToAction("Index", "Blog");
+            myTags.Delete(tag);
+
+            return RedirectToAction("Index");
         }
-
-
     }
 }

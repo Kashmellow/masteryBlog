@@ -1,0 +1,30 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>@ViewBag.Title</title>
+    <link rel="stylesheet" type="text/css" href="~/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="~/css/site.css?version=1.6">
+
+</head>
+<body>
+
+
+    <nav>
+        <div class="navalign">
+            <a href="/Blog/Index">Blogs</a>
+            <a href="/Blog/Create">Add Blog</a>
+            <a href="/Tag/Index">Lookup By Tag</a>
+            <a href="/Category/Index">Lookup By Category</a>
+        </div>
+    </nav>
+
+    @RenderSection("slider", required: false)
+
+    <main>
+        @RenderBody()
+    </main>
+
+</body>
+</html>
