@@ -6,9 +6,9 @@ using masteryBlog.Models;
 
 namespace masteryBlog.Repositories
 {
-    public class TagRepository : Repository<TagModel>
+    public class CategoryRepository : Repository<CategoryModel>
     {
-        public TagRepository(BlogContext context) : base(context)
+        public CategoryRepository(BlogContext context) : base(context)
         {
             // This ensures our base constructor gets run.
         }
