@@ -27,9 +27,9 @@ namespace masteryBlog
                 new BlogModel()
                 {
                     Id = 1,
-                    Title = "First Blog",
-                    Content = "Here's some content about parenting",
-                    Author = "Svetlana",
+                    Title = "Pooping Faces",
+                    Content = "Kids make the craziest faces when they poop",
+                    Author = "lilmama1037",
                     PublishDate = DateTime.Now,
                     CategoryId = 1,
                     TagId = 1
@@ -38,9 +38,9 @@ namespace masteryBlog
                 new BlogModel()
                 {
                     Id = 2,
-                    Title = "Second Blog",
-                    Content = "Here's some more content about parenting",
-                    Author = "Viktor",
+                    Title = "Gettin sleep",
+                    Content = "Tips on sleeping when your kids seem like they wont",
+                    Author = "BigZaddy",
                     PublishDate = DateTime.Now,
                     CategoryId = 1,
                     TagId = 1
