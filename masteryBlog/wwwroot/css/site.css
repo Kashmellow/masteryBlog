@@ -1,5 +1,5 @@
 ﻿* {
-    font-family: 'Arapey';
+    font-family: 'News Cycle';
     line-height: 1.618em;
     box-sizing: border-box;
     margin: 0;
@@ -8,7 +8,8 @@
 }
 
 .bgred {
-    background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
+    background: rgb(2,0,36);
+    background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(142,209,162,0.7486344879748774) 0%, rgba(47,190,116,1) 99%);
 }
 
 header, section {
@@ -40,9 +41,10 @@ header, footer, #aboutsection, #spartanprojects, #contact {
 }
 
 header {
-    background: url(../img/bigpony.svg) no-repeat;
-    background-position: bottom left;
-    height: 600px;
+    background: url(../img/baby.png) no-repeat;
+    background-size: contain;
+    background-position: right ;
+    height: 450px;
     padding-top: 4em;
 }
 
@@ -51,7 +53,7 @@ header {
 }
 
     #ponyDetail img {
-        height: 30em;
+        height: 10em;
         float: left;
     }
 
@@ -88,7 +90,8 @@ nav {
     top: 0;
     left: 0;
     width: 100%;
-    background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
+    background: darkslategrey ;
+
 }
 
 .navalign {
@@ -272,8 +275,8 @@ h2 {
         .grid-item-3 ul li {
             width: 100%;
             list-style-type: none;
-            background: rgb(123,128,51);
-            background: linear-gradient(90deg, rgba(123,128,51,1) 0%, rgba(193,241,8,0.9976190305223652) 95%);
+            background: rgb(2,0,36);
+            background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(142,209,162,0.7486344879748774) 84%, rgba(0,0,0,1) 99%);
             color: #fff;
             margin-top: 1em;
             margin-bottom: 1em;
@@ -281,8 +284,8 @@ h2 {
         }
 
             .grid-item-3 ul li:hover {
-                background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
-                color: #fff;
+                background: rgb(2,0,36);
+                background: linear-gradient(0deg, rgba(2,0,36,1) 0%, rgba(142,209,162,0.7486344879748774) 84%, rgba(0,0,0,1) 99%);
             }
 
 .quote-author {
@@ -385,7 +388,7 @@ article a p {
 }
 
 #projects article:hover {
-    background: linear-gradient(124deg, #ff2400, #e81d1d, #e8b71d, #e3e81d, #1de840, #1ddde8, #2b1de8, #dd00f3, #dd00f3);
+    background: rgb(2,0,36);
     color: #fff;
     -webkit-transition: background-color 1s ease-out;
     -moz-transition: background-color 1s ease-out;
