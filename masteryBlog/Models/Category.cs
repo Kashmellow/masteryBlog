@@ -5,19 +5,19 @@ using System.Threading.Tasks;
 
 namespace masteryBlog.Models
 {
-    public class CategoryModel
+    public class Category
     {
         public int CategoryId { get; set; }
         public string CategoryName { get; set; }
 
         public virtual ICollection<BlogModel> Blogs { get; set; }
 
-        public CategoryModel()
+        public Category()
         {
 
         }
 
-        public CategoryModel(int catid, string catname)
+        public Category(int catid, string catname)
         {
             CategoryId = catid;
             CategoryName = catname;

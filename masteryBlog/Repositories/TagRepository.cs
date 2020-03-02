@@ -6,7 +6,7 @@ using masteryBlog.Models;
 
 namespace masteryBlog.Repositories
 {
-    public class TagRepository : Repository<TagModel>
+    public class TagRepository : Repository<Tag>
     {
         public TagRepository(BlogContext context) : base(context)
         {

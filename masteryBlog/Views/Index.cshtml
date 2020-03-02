@@ -16,14 +16,13 @@
         @foreach (var blog in Model)
         {
             <article>
-                <a href="/Product/Detail/@blog.BlogId">
-                    <img src="~/img/@blog.Image" alt="@blog.Title">
+                <a href="/Product/Detail/@blog.Id">
                     <h3>@blog.Title</h3>
                     <p>
                         @blog.Content
                     </p>
                     <p>
-                        @blog.Category
+                        @blog.Category.CategoryName
                     </p>
                     <p>
                         @blog.PublishDate
@@ -32,7 +31,7 @@
                         @blog.Author
                     </p>
                     <p>
-                        @blog.Tag
+                        @blog.Tag.TagName
                     </p>
                 </a>
             </article>

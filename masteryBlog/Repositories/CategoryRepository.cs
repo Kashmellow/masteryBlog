@@ -6,7 +6,7 @@ using masteryBlog.Models;
 
 namespace masteryBlog.Repositories
 {
-    public class CategoryRepository : Repository<CategoryModel>
+    public class CategoryRepository : Repository<Category>
     {
         public CategoryRepository(BlogContext context) : base(context)
         {
