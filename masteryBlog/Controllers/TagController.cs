@@ -1,0 +1,86 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Threading.Tasks;
+using masteryBlog.Models;
+using masteryBlog.Repositories;
+using Microsoft.AspNetCore.Mvc;
+
+namespace masteryBlog.Controllers
+{
+    public class TagController : Controller
+    {
+        Repositories.IRepository<Tag> myTags;
+
+        public TagController(IRepository<Tag> myTags)
+        {
+            this.myTags = myTags;
+        }
+
+        // GET: /<controller>/
+        public ActionResult Index()
+        {
+            var model = myTags.GetAll();
+            return View(model);
+        }
+
+        public IActionResult Detail(int id)
+        {
+            var model = myTags.GetById(id);
+            return View(model);
+        }
+
+        [HttpGet]
+        public IActionResult Create()
+        {
+            return View();
+        }
+
+        [HttpPost]
+        public IActionResult Create(Tag tag)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+            myTags.Create(tag);
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public ViewResult Update(int id)
+        {
+            var model = myTags.GetById(id);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult Update(Tag tag)
+        {
+            if (!ModelState.IsValid)
+            {
+                return View();
+            }
+            myTags.Update(tag);
+
+            return RedirectToAction("Index");
+        }
+
+        [HttpGet]
+        public ViewResult Delete(int id)
+        {
+            var model = myTags.GetById(id);
+
+            return View(model);
+        }
+
+        [HttpPost]
+        public ActionResult Delete(Tag tag)
+        {
+            myTags.Delete(tag);
+
+            return RedirectToAction("Index");
+        }
+    }
+}

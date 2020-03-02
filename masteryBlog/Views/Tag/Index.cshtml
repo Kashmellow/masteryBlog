@@ -1,0 +1,42 @@
+﻿@model IEnumerable<masteryBlog.Models.Tag>
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a href="/Tag/Create">Create a New Tag</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TagId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TagName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var Tag in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => Tag.TagId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Tag.TagName)
+                </td>
+                <td>
+                    <a href="/Tag/Update/@Tag.TagId/" class="button">Update</a>
+                    <a href="/Tag/Delete/@Tag.TagId/" class="button">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>

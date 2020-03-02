@@ -1,0 +1,46 @@
+﻿@model IEnumerable<masteryBlog.Models.Category>
+@addTagHelper *, Microsoft.AspNetCore.Mvc.TagHelpers
+
+@{
+    ViewData["Title"] = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a asp-action="Create">Create New</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoryId)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.CategoryName)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+        @foreach (var Category in Model)
+        {
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => Category.CategoryId)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => Category.CategoryName)
+                </td>
+                <td>
+                    <a href="/Category/Update/@Category.CategoryId/" class="button">Update</a>
+                    <a href="/Category/Delete/@Category.CategoryId/" class="button">Delete</a>
+                </td>
+            </tr>
+        }
+    </tbody>
+</table>
+
+
+
